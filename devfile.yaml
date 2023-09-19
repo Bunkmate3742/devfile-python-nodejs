@@ -17,6 +17,12 @@ components:
     volume:
       size: 1G
 commands:
+  - id: install
+      label: "install dependencies"
+      component: python
+      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs
+      commandLine: python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
+
   - id: run
     exec:
       label: "Run the application"
