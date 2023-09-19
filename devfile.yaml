@@ -5,6 +5,11 @@ components:
   - name: python
     container:
       image: registry.redhat.io/devspaces/udi-rhel8:3.8
+      endpoints:
+        - exposure: public
+          name: python
+          protocol: http
+          targetPort: 3000
       volumeMounts:
         - name: venv
           path: /home/user/.venv
@@ -16,19 +21,56 @@ components:
   - name: venv
     volume:
       size: 1G
+
+  - name: nodejs
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8:3.8
+      endpoints:
+        - exposure: public
+          name: nodejs
+          protocol: http
+          targetPort: 3001
+      memoryLimit: '1Gi'
+      memoryRequest: '512Mi'
+      cpuLimit: '0.5'
+      cpuRequest: '0.25'
+      mountSources: true
+      volumeMounts:
+        - name: npm
+          path: /home/user/.npm
+  - name: npm
+    volume:
+      size: 1G
+      
 commands:
-  - id: install
+  - id: python-install
     exec:
       label: "install dependencies"
       component: python
-      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs
+      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/python
       commandLine: python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 
-  - id: run
+  - id: python-run
     exec:
       label: "Run the application"
       component: python
-      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs
+      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/python
       commandLine: python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python server.py
       group:
         kind: run
+
+  - id: nodejs-install
+    exec:
+      label: Nodejs Install Dependencies
+      component: nodejs
+      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/nodejs
+      commandLine: npm install
+
+  - id: nodejs-run
+    exec:
+      label: Nodejs Run Application
+      component: nodejs
+      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/nodejs
+      commandLine: npm start
+
+    
