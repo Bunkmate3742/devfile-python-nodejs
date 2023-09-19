@@ -45,14 +45,14 @@ components:
 commands:
   - id: python-install
     exec:
-      label: "install dependencies"
+      label: "Python Install Dependencies"
       component: python
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/python
       commandLine: python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 
   - id: python-run
     exec:
-      label: "Run the application"
+      label: "Python Run The Application"
       component: python
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/python
       commandLine: python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python server.py
