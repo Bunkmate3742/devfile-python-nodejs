@@ -6,4 +6,4 @@ app.get("/", (_, res) => {
     res.send("(Node.js) Hello, world!\n");
 });
 
-app.listen(3001, () => console.log("Started server on port 3001"));
+app.listen(3002, () => console.log("Started server on port 3002"));
