@@ -18,6 +18,7 @@ components:
       size: 1G
 commands:
   - id: install
+    exec:
       label: "install dependencies"
       component: python
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs
