@@ -22,6 +22,6 @@ commands:
       label: "Run the application"
       component: python
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs
-      commandLine: python -m venv .venv && pip install -r requirements.txt && source .venv/bin/activate && python server.py
+      commandLine: python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python server.py
       group:
         kind: run
