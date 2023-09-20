@@ -4,6 +4,7 @@
     "recommendations": [
       "ms-python.python",
       "redhat.fabric8-analytics"
-      "ms-toolsai.jupyter"
+      "ms-toolsai.jupyter",
+      "redhat.vscode-openshift-connector"
     ]
 }
