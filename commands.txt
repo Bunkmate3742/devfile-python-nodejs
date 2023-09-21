@@ -1,0 +1,1 @@
+oc new-app https://github.com/Bunkmate3742/devfile-python-nodejs.git --context-dir=nodejs
