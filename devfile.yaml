@@ -52,7 +52,7 @@ commands:
 
   - id: nodejs-install-run
     exec:
-      label: Nodejs Install Dep & Run the Application"
+      label: "Nodejs Install Dep & Run the Application"
       component: nodejs
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/nodejs
       commandLine: npm install & npm start
