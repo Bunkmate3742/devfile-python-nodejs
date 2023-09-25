@@ -43,32 +43,16 @@ components:
       size: 1G
       
 commands:
-  - id: python-install
+  - id: python-install-run
     exec:
-      label: "Python Install Dependencies"
-      component: python
-      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/python
-      commandLine: python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
-
-  - id: python-run
-    exec:
-      label: "Python Run The Application"
+      label: "Python Install Dep & Run The Application"
       component: python
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/python
       commandLine: python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && python server.py
 
-  - id: nodejs-install
+  - id: nodejs-install-run
     exec:
-      label: Nodejs Install Dependencies
+      label: Nodejs Install Dep & Run the Application"
       component: nodejs
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/nodejs
-      commandLine: npm install
-
-  - id: nodejs-run
-    exec:
-      label: Nodejs Run Application
-      component: nodejs
-      workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/nodejs
-      commandLine: npm start
-
-    
+      commandLine: npm install & npm start
