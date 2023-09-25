@@ -9,7 +9,7 @@ components:
         - exposure: public
           name: python
           protocol: http
-          targetPort: 3000
+          targetPort: 8080
       volumeMounts:
         - name: venv
           path: /home/user/.venv
