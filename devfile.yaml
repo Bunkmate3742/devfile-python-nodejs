@@ -55,7 +55,7 @@ commands:
       label: "Nodejs Install Dep & Run the Application"
       component: nodejs
       workingDir: ${PROJECTS_ROOT}/devfile-python-nodejs/nodejs
-      commandLine: npm install & npm start
+      commandLine: npm install && npm start
 
   - id: python-new-app
     exec:
