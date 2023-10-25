@@ -3,7 +3,7 @@
     // for the documentation about the extensions.json format
     "recommendations": [
       "ms-python.python",
-      "redhat.fabric8-analytics"
+      "redhat.fabric8-analytics",
       "ms-toolsai.jupyter",
       "redhat.vscode-openshift-connector"
     ]
